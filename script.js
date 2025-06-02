@@ -189,12 +189,22 @@ function drawGraph() {
         }
     }
 
-    // ===== DIBUJAR LA FUNCIÓN MATEMÁTICA =====
-    ctx.strokeStyle = '#ff4757'; // Color rojo para la función
-    ctx.lineWidth = 3;           // Línea gruesa
-    ctx.lineCap = 'round';       // Extremos redondeados
-    ctx.lineJoin = 'round';      // Uniones redondeadas
+   // Dibuja la función cúbica
+    ctx.strokeStyle = '#ff4757';
+    ctx.lineWidth = 3;
+    ctx.beginPath();
     
-    // Configurar sombra para la línea de la función
-    //ctx.shadowColor = 'rgba(
+    for (let x = -10; x <= 10; x += 0.1) {
+        const y = a * Math.pow(x, 3) + b * Math.pow(x, 2) + c * x + d;
+        const canvasX = centerX + x * scale;
+        const canvasY = centerY - y * scale;
+        
+        if (x === -10) {
+            ctx.moveTo(canvasX, canvasY); // Mueve a la posición inicial
+        } else {
+            ctx.lineTo(canvasX, canvasY); // Dibuja la línea
+        }
+    }
+    
+    ctx.stroke();
 }
