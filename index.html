@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <!-- Configuración básica del documento -->
+    <meta charset="UTF-8"> <!-- Codificación de caracteres UTF-8 para soporte de acentos -->
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"> <!-- Responsive design para móviles -->
+    <title>Graficador de Ecuaciones</title> <!-- Título que aparece en la pestaña del navegador -->
+    
+    <!-- Enlace al archivo CSS externo -->
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <!-- Contenedor principal de toda la aplicación -->
+    <div class="container">
+        
+        <!-- Encabezado con título y menú de opciones -->
+        <div class="header">
+            <h1>Graficador de Ecuaciones</h1> <!-- Título principal -->
+            
+            <!-- Botón del menú desplegable -->
+            <div class="menu-button" onclick="toggleDropdown()">
+                Opciones ▼
+                <!-- Menú desplegable con opciones -->
+                <div class="dropdown" id="dropdown">
+                    <a class="dropdown-item" onclick="showCredits()">Créditos</a>
+                    <a class="dropdown-item" onclick="showInstructions()">Instrucciones</a>
+                </div>
+            </div>
+        </div>
+
+        <!-- Panel de entrada de datos -->
+        <div class="input-panel">
+            <!-- Muestra la ecuación actual en tiempo real -->
+            <div class="equation-display">
+                y = <span id="eq-a">0</span>x³ + <span id="eq-b">0</span>x² + <span id="eq-c">0</span>x + <span id="eq-d">0</span>
+            </div>
+            
+            <!-- Grupo de campos de entrada para los coeficientes -->
+            <div class="input-group">
+                <label>y =</label>
+                <input type="number" id="txtA" placeholder="0" step="any"> <!-- Coeficiente A (x³) -->
+                <label>x³ +</label>
+                <input type="number" id="txtB" placeholder="0" step="any"> <!-- Coeficiente B (x²) -->
+                <label>x² +</label>
+                <input type="number" id="txtC" placeholder="0" step="any"> <!-- Coeficiente C (x) -->
+                <label>x +</label>
+                <input type="number" id="txtD" placeholder="0" step="any"> <!-- Coeficiente D (constante) -->
+            </div>
+
+            <!-- Mensaje de error que se muestra cuando hay entradas inválidas -->
+            <div class="error-message" id="errorMessage">
+                ¡Solo números permitidos!
+            </div>
+
+            <!-- Botón para generar la gráfica -->
+            <button class="graph-button" onclick="generateGraph()">
+                Graficar
+            </button>
+        </div>
+
+        <!-- Contenedor de la gráfica -->
+        <div class="graph-container">
+            <!-- Canvas donde se dibuja la gráfica -->
+            <canvas id="canvas" width="600" height="400"></canvas>
+        </div>
+    </div>
+
+    <!-- Modal (ventana emergente) para mostrar los créditos -->
+    <div id="creditsModal" class="modal">
+        <div class="modal-content">
+            <!-- Botón para cerrar el modal -->
+            <span class="close" onclick="closeModal('creditsModal')">&times;</span>
+            <div class="modal-header">Créditos</div>
+            <div class="modal-body">
+                <p><strong>© Todos los derechos reservados a Kan</strong></p>
+                <p>Graficador de Ecuaciones Cúbicas</p>
+                <p>Versión Web - Convertido a HTML, CSS y JavaScript</p>
+            </div>
+        </div>
+    </div>
+
+    <!-- Modal (ventana emergente) para mostrar las instrucciones -->
+    <div id="instructionsModal" class="modal">
+        <div class="modal-content">
+            <!-- Botón para cerrar el modal -->
+            <span class="close" onclick="closeModal('instructionsModal')">&times;</span>
+            <div class="modal-header">Instrucciones</div>
+            <div class="modal-body">
+                <p><strong>¡Bienvenido al graficador de ecuaciones cúbicas!</strong></p>
+                <br>
+                <p><strong>Instrucciones:</strong></p>
+                <p>1. Ingresa los coeficientes de la ecuación:<br>
+                   &nbsp;&nbsp;&nbsp;<strong>y = Ax³ + Bx² + Cx + D</strong></p>
+                <p>2. Presiona 'Graficar' para ver el resultado.</p>
+                <br>
+                <p><strong>Ejemplos:</strong></p>
+                <p>• Cúbica simple: A=1, B=0, C=0, D=0 → y = x³</p>
+                <p>• Cuadrática: A=0, B=1, C=-2, D=1 → y = x² - 2x + 1</p>
+                <p>• Lineal: A=0, B=0, C=2, D=3 → y = 2x + 3</p>
+            </div>
+        </div>
+    </div>
+
+    <!-- Enlace al archivo JavaScript externo -->
+    <script src="script.js"></script>
+</body>
+</html>
