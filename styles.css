@@ -9,7 +9,7 @@
 /* ===== ESTILOS DEL CUERPO PRINCIPAL ===== */
 body {
     font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; /* Fuente moderna y legible */
-    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%); /* Fondo con gradiente azul-morado */
+    background: linear-gradient(135deg, #390001 0%, #764ba2 100%); /* Fondo con gradiente azul-morado */
     min-height: 100vh; /* Altura mínima de toda la pantalla */
     padding: 20px; /* Espaciado interno */
 }
